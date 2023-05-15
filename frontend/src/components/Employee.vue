@@ -21,7 +21,8 @@
             <Boolean label="IsManager" v-model="value.isManager" :editMode="editMode"/>
             <DepartmentId offline label="DepartmentId" v-model="value.departmentId" :editMode="editMode" @change="change"/>
             <RankId offline label="RankId" v-model="value.rankId" :editMode="editMode" @change="change"/>
-            <EmployeeUserManager offline label="EmployeeUser" v-model="value.employeeUser" :editMode="editMode" @change="change"/>
+            <EmployeeManager offline label="Employee" v-model="value.employee" :editMode="editMode" @change="change"/>
+            <EmployeeUser offline label="EmployeeUser" v-model="value.employeeUser" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>
@@ -81,10 +82,12 @@
 <script>
     const axios = require('axios').default;
 
+    import EmployeeUser from './vo/EmployeeUser.vue';
 
     export default {
         name: 'Employee',
         components:{
+            EmployeeUser,
         },
         props: {
             value: [Object, String, Number, Boolean, Array],

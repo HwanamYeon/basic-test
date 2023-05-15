@@ -81,7 +81,8 @@
                     'isManager': false,
                     'departmentId': {},
                     'rankId': {},
-                    'employeeUser': [],
+                    'employee': [],
+                    'employeeUser': {},
                 }
             },
 

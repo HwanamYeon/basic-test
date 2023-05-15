@@ -30,15 +30,15 @@
             :selectionChanged="onSelectionChanged"
             style="margin-top:10px; max-height:65vh;"
         >
-            <wj-flex-grid-filter :filterColumns="['userId','isManager','departmentId','rankId','employeeUser',]" />
+            <wj-flex-grid-filter :filterColumns="['userId','isManager','departmentId','rankId','employee','employeeUser',]" />
             <wj-flex-grid-column binding="index" header="Number" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="employeeUser[0].name" header="employeeUser" width="2*" :isReadOnly="true" align="center" />
+            <wj-flex-grid-column binding="employee[0].name" header="employee" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="userId" header="userId" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="isManager" header="isManager" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="departmentId.name" header="department" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="rankId.name" header="rank" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
-        <EmployeeUserDetailGrid :selectedGrid="selectedGrid" />
+        <EmployeeDetailGrid :selectedGrid="selectedGrid" />
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
                 <v-dialog
@@ -73,7 +73,7 @@
 <script>
 import EmployeeViewQuery from '../components/EmployeeViewQuery.vue';
 import Employee from '../components/Employee.vue'
-import EmployeeUserDetailGrid from './EmployeeUserDetailGrid.vue'
+import EmployeeDetailGrid from './EmployeeDetailGrid.vue'
 
 const axios = require('axios').default;
 
@@ -94,7 +94,7 @@ export default {
     components:{
         EmployeeViewQuery,
         Employee,
-        EmployeeUserDetailGrid,
+        EmployeeDetailGrid,
     },
     data: () => ({
         tick : true,
@@ -151,7 +151,7 @@ export default {
         onSelectionChanged(s) {
             let selectedItem = s.collectionView.currentItem;
             if (selectedItem) {
-                this.selectedGrid = selectedItem.employeeUser;
+                this.selectedGrid = selectedItem.employee;
                 this.selectedGrid = this.selectedGrid.map((user, index) => {
                     return { ...user, index: index };
                 });

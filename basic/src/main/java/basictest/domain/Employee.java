@@ -36,7 +36,10 @@ public class Employee {
     private RankId rankId;
 
     @ElementCollection
-    private List<EmployeeUser> employeeUser;
+    private List<Employee> employee;
+
+    @Embedded
+    private EmployeeUser employeeUser;
 
     @PostPersist
     public void onPostPersist() {

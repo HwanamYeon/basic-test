@@ -13,7 +13,8 @@
             </div>
             <DepartmentId offline label="DepartmentId" v-model="item.departmentId" :editMode="false" :key="false" @change="change" />
             <RankId offline label="RankId" v-model="item.rankId" :editMode="false" :key="false" @change="change" />
-            <EmployeeUserManager offline label="EmployeeUser" v-model="item.employeeUser" :editMode="false" @change="change" />
+            <EmployeeManager offline label="Employee" v-model="item.employee" :editMode="false" @change="change" />
+            <EmployeeUser offline label="EmployeeUser" v-model="item.employeeUser" :editMode="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

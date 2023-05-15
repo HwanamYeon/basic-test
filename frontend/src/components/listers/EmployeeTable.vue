@@ -71,6 +71,7 @@
                     { text: "isManager", value: "isManager" },
                     { text: "departmentId", value: "departmentId" },
                     { text: "rankId", value: "rankId" },
+                    { text: "employee", value: "employee" },
                     { text: "employeeUser", value: "employeeUser" },
                 ],
             employee : [],
@@ -93,7 +94,8 @@
                 'isManager': false,
                 'departmentId': {},
                 'rankId': {},
-                'employeeUser': [],
+                'employee': [],
+                'employeeUser': {},
             }
         },
         methods: {
